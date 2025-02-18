@@ -1,20 +1,13 @@
 import express  from 'express';
-import mysql  from 'mysql2';
+import db from './src/model/config.js';
 
 const app = express();
 const port = 5000;
 
 // MySQL connection setup (without SSL)
-const pool = mysql.createPool({
-  host: '127.0.0.1',
-  user: 'root',
-  password: 'manaye@mysql', 
-  database: 'users',
-  port: 9000
-});
 
 // Test the MySQL connection
-pool.getConnection((err, connection) => {
+db.getConnection((err, connection) => {
   if (err) {
     console.error('Error connecting to the database:', err.code);
   } else {

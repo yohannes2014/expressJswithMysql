@@ -1,11 +1,12 @@
 import mysql from "mysql2";
 
-const mySqlDb = mysql.createConnection({
-   host:'127.0.0.1:9000',
-   user:'root',
-   password:'',
-   database:'users'
+const db = mysql.createPool({
+    host: '127.0.0.1',
+    user: 'root',
+    password: 'manaye@mysql', 
+    database: 'users',
+    port: 9000
+  });
+  
 
-});
-
-export default mySqlDb
+export default db
